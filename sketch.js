@@ -63,5 +63,5 @@ function mouseDragged(){
 
 
 function mouseReleased(){
-  polygon.fly();
+  slingShot.fly();
 }
