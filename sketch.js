@@ -35,7 +35,7 @@ function setup() {
 }
 
 function draw() {
-  background(255,255,255);
+  background(bg);
   Engine.update(engine);
   
   
@@ -64,4 +64,22 @@ function mouseDragged(){
 
 function mouseReleased(){
   slingShot.fly();
+}
+
+async function getTime(){
+  var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata")
+  var responseJSON = await response.json()
+ // console.log(responseJSON)
+ console.log(responseJSON.datetime)
+ var datetime = responseJSON.datetime
+ var hrs = datetime.slice(10,13)
+ console.log(datetime)
+ console.log(hrs)
+ if (hrs>=06 && hrs<=19){
+     bg=255
+ }
+ else{
+     bg=0
+ }
+ backgroundImg=loadImage(bg)
 }
